@@ -1,0 +1,153 @@
+<!doctype html><html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#b65b45"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="名古屋旅行"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon-192.png"><title>名古屋 2026｜旅行 APP</title>
+<style>
+:root{--bg:#f7f4ef;--card:#fff;--ink:#252525;--muted:#777;--line:#e7e1d9;--a:#b65b45}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;padding-bottom:76px}.wrap{max-width:760px;margin:auto}
+header{padding:22px 16px 12px}h1{font-size:24px;margin:0 0 4px}h2{font-size:19px;margin:0 0 5px}h3{font-size:15px;margin:0 0 5px}.sub,.muted{color:var(--muted);font-size:13px}
+.tabs{display:flex;gap:7px;overflow:auto;padding:0 16px 12px}.tabs button{border:1px solid var(--line);background:#fff;border-radius:18px;padding:7px 11px;white-space:nowrap}.tabs .on{background:var(--a);color:white}
+main{padding:0 16px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px;margin:10px 0}.hero{background:#f1e5de;border:0}.time{font-weight:700}.row{display:flex;gap:10px}.dot{width:8px;height:8px;border-radius:50%;background:var(--a);margin-top:7px;flex:none}
+.btn{display:inline-block;border:0;border-radius:9px;background:var(--a);color:white;padding:8px 11px;text-decoration:none;font-size:13px;margin-top:7px}.secondary{background:#eee8e1;color:#333}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;z-index:5;padding:6px 5px calc(6px + env(safe-area-inset-bottom))}.nav button{flex:1;border:0;background:none;color:#777;font-size:11px}.nav button.on{color:var(--a);font-weight:bold}.ico{display:block;font-size:20px}
+.sec{display:none}.sec.on{display:block}.list{padding:8px 0;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center}.list:last-child{border:0}.done{text-decoration:line-through;color:#aaa}
+.add{display:flex;gap:7px;margin-top:9px}.add input{flex:1;padding:10px;border:1px solid var(--line);border-radius:9px}.add button{border:0;border-radius:9px;background:var(--a);color:#fff;padding:0 15px}
+ .mapbtn{margin-top:7px;padding:7px 10px;font-size:12px}
+</style></head><body><div class="wrap">
+<header><h1>🇯🇵 名古屋 8日旅行</h1><div class="sub">2026/9/29–10/6｜2位成人｜HOTEL FORZA NAGOYA SAKAE</div></header>
+
+<section id="it" class="sec on"><div class="tabs" id="tabs"></div><main id="content"></main></section>
+<section id="tr" class="sec"><main>
+<div class="card hero"><h2>🚃 交通</h2><p class="sub">公共交通優先；必要時再搭計程車。</p></div>
+<div class="card"><h3>9/29 常滑</h3><p>中部機場 → りんくう常滑 → AEON MALL 常滑 → 常滑 → 金山 → 矢場町</p></div>
+<div class="card"><h3>9/30 Ghibli Park</h3><p>電車方案：矢場町→榮→藤が丘→Linimo→愛・地球博記念公園。</p><p>備用：名鐵巴士中心→Ghibli Park 直達巴士。</p></div>
+<div class="card"><h3>10/1 犬山</h3><p>矢場町→榮→名鐵名古屋→犬山。</p></div>
+<div class="card"><h3>10/2 明治村</h3><p>名鐵名古屋→犬山→犬山站東口→明治村。</p></div>
+<div class="card"><h3>10/5 LEGOLAND</h3><p>松坂屋前→名鐵巴士中心→名古屋站→Aonami Line→金城埠頭。</p></div>
+<div class="card"><h3>10/6 機場</h3><p>矢場町→金山→中部國際機場 T2。</p></div>
+</main></section>
+
+<section id="tk" class="sec"><main>
+<div class="card hero"><h2>🎫 票券</h2><p class="sub">票券效期與使用規則以你的電子票／官方最新公告為準。</p></div>
+<div class="card"><h3>Ghibli Park</h3><p>10:00 入園｜大さんぽ券 Premium｜保留電車＋直達巴士兩方案。</p></div>
+<div class="card"><h3>犬山／明治村 KKday</h3><p>10/1 犬山、10/2 明治村；名古屋→犬山是否需另購依最終電子票條款確認。</p></div>
+<div class="card"><h3>LEGOLAND</h3><p>10/5 目標約 09:30–09:45 到園，10:00 開園；表演時間出發前確認官方公告。</p></div>
+</main></section>
+
+<section id="li" class="sec"><main>
+<div class="card hero"><h2>📝 我的清單</h2><p class="sub">旅途中自行加入必買／必吃；會儲存在此瀏覽器。</p></div>
+<div class="card"><h3>🛍️ 必買</h3><div id="buy"></div><div class="add"><input id="bi" placeholder="輸入想買的東西"><button onclick="add('b')">＋</button></div></div>
+<div class="card"><h3>🍜 必吃</h3><div id="eat"></div><div class="add"><input id="ei" placeholder="輸入想吃的東西"><button onclick="add('e')">＋</button></div></div>
+</main></section>
+
+<section id="pa" class="sec"><main>
+<div class="card hero"><h2>🎒 行李</h2><p class="sub">勾選狀態會自動保存。</p></div><div class="card" id="pack"></div>
+</main></section>
+
+<nav class="nav">
+<button class="on" onclick="show('it',this)">🗓️<br>行程</button>
+<button onclick="show('tr',this)">🚃<br>交通</button>
+<button onclick="show('tk',this)">🎫<br>票券</button>
+<button onclick="show('li',this)">📝<br>清單</button>
+<button onclick="show('pa',this)">🎒<br>行李</button>
+</nav></div>
+
+<script>
+const D=[
+["9/29（二）","✈️ 桃園→常滑→榮","12:55 抵達後直接前往常滑，不安排長時間機場停留.",[
+["12:55","✈️ IT206 抵達中部國際機場","入境、領行李、海關後直接出發。"],
+["約14:00","🚃 NGO→りんくう常滑","先到 AEON MALL 常滑。"],
+["約14:30–16:00","🛍️ 永旺夢樂城 常滑","購物、零食、藥妝、生活用品。"],
+["約16:10","🚃 りんくう常滑→常滑","前往常滑市區。"],
+["約16:15–18:30","🐱 常滑陶瓷散步","陶器散步道、土管坂、招き猫、陶器店／陶藝咖啡。"],
+["約18:30","🚃 常滑→金山","不繞名古屋站。"],
+["約19:15","🚇 金山→矢場町","前往飯店。"],
+["約19:30–20:00","🏨 HOTEL FORZA NAGOYA SAKAE","Check-in。晚餐自由安排。"]]],
+["9/30（三）","🌳 Ghibli Park","10:00 大さんぽ券 Premium；保留電車與直達巴士兩套方案.",[
+["早上","🚇 電車方案","矢場町→榮→藤が丘→Linimo→愛・地球博記念公園→步行。"],
+["備用","🚌 直達巴士","名鐵巴士中心 4F 24號乘車處→Ghibli Park；班次出發前確認。"],
+["10:00","🎟️ Ghibli Park","大さんぽ券 Premium，五大區域。"],
+["約16:00","🚃 返回榮","依當天體力彈性調整。"]]],
+["10/1（四）","🏯 犬山城＋城下町＋Cosme","犬山城整天；三光稻荷神社、城下町本町通，下午 Cosme.",[
+["早上","🚇 矢場町→榮→名鐵名古屋","前往犬山。"],
+["上午","🚃 名鐵名古屋→犬山","依最終票券安排。"],
+["上午～下午","⛩️ 三光稻荷→🏯 犬山城→🏘️ 本町通","不趕行程。"],
+["下午","💄 Cosme／藥妝","回名古屋後安排採買。"],
+["晚上","🏨 回榮","晚餐自由安排。"]]],
+["10/2（五）","🏛️ 明治村一整天","目標 09:40 左右抵達，玩到傍晚.",[
+["早上","🚃 名鐵名古屋→犬山","是否需另購普通車票依最終電子票條款確認。"],
+["09:20","🚌 犬山站東口→明治村","目前規劃此班；出發前再核對時刻表。"],
+["09:42","🏛️ 抵達明治村","從開園附近開始。"],
+["09:45–17:00","⭐ 明治村整天","建築、SL、教會、老街等。"],
+["17:10","🚌 明治村→犬山站東口","目前規劃此班；出發前再核對。"],
+["晚上","🚃 犬山→名古屋→榮","回飯店。"]]],
+["10/3（六）","🏯 清洲城→則武之森→名古屋城→市區","由西往市中心走，減少折返.",[
+["上午","🏯 清洲城","約09:00後開始。"],
+["中午前後","🌳 則武之森","逛園區與商場區域。"],
+["下午","🏯 名古屋城","下午進場；開放時間與活動出發前確認。"],
+["傍晚","🎨 美術館／市區逛街","依最後選定的美術館調整。"]]],
+["10/4（日）","🛍️ 大須＋榮","市區自由購物日，留給旅途中查到的店與清單.",[
+["上午","⛩️ 大須觀音＋大須商店街","慢慢逛。"],
+["下午","🛍️ 大須→榮","購物、咖啡、百貨。"],
+["晚上","🍜 榮","依必吃清單決定。"]]],
+["10/5（一）","🧱 LEGOLAND JAPAN","🎯 目標約09:30–09:45到園，避免09:00過早乾等；10:00開園並準備看表演.",[
+["約07:30","🏨 飯店出發","最終依10/5巴士時刻表微調。"],
+["約07:45","🚌 松坂屋前→名鐵巴士中心","依原規劃。"],
+["約08:20–08:35","🚶 名古屋站轉乘","步行至Aonami Line。"],
+["約08:35–09:00","🚃 Aonami Line→金城埠頭","依當日班次調整。"],
+["約09:30–09:45","🧱 LEGOLAND","開園前不久抵達。"],
+["10:00","🎭 開園／開園表演","10/5詳細表演時間出發前以官方公告為準。"],
+["10:00–下午","🧱 LEGOLAND 全天","依官方當日營業時間。"]]],
+["10/6（二）","✈️ 榮→中部國際機場→桃園","13:45 IT207；預留充足機場時間.",[
+["07:00","🏨 飯店出發","確認護照、行李、購物。"],
+["約07:10","🚇 矢場町→金山","轉乘名鐵。"],
+["約07:30–08:10","🚃 金山→中部國際機場","優先合適直達班次；最終依時刻表。"],
+["上午","🛍️ 機場最後採買","旅途中查到的必買再加入清單。"],
+["約12:00前","🛂 報到／安檢／出境","預留國際線緩衝。"],
+["13:45","✈️ IT207 NGO T2→TPE T1","15:50抵達桃園。"]]]
+];
+function maps(q){return"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q+" Japan")}
+function render(){
+  let t=document.getElementById("tabs"),c=document.getElementById("content");
+  D.forEach((d,i)=>{
+    let b=document.createElement("button");
+    b.textContent=d[0];
+    b.onclick=()=>sel(i);
+    if(!i)b.className="on";
+    t.appendChild(b);
+
+    let s=document.createElement("div");
+    s.id="d"+i;
+    s.style.display=i?"none":"block";
+    s.innerHTML='<div class="card hero"><h2>'+d[1]+'</h2><p>'+d[2]+'</p></div>';
+
+    d[3].forEach(x=>{
+      let z=document.createElement("div");
+      z.className="card";
+      z.innerHTML='<div class="row"><span class="dot"></span><div><div class="time">'+x[0]+'</div><h3>'+x[1]+'</h3><p>'+x[2]+'</p></div></div>';
+      let details=z.querySelector(".row > div");
+      let mapBtn=document.createElement("button");
+      mapBtn.className="btn secondary mapbtn";
+      mapBtn.type="button";
+      mapBtn.textContent="📍 Google Maps";
+      let query=x[1].replace(/[✈️🚃🚇🚌🏨🛍️🐱⛩️🏯🏘️💄🌳🎨🧱🎭⭐🛂]/g,"").trim();
+      mapBtn.addEventListener("click",()=>openMap(query));
+      details.appendChild(mapBtn);
+      s.appendChild(z);
+    });
+    c.appendChild(s);
+  });
+}
+function sel(i){document.querySelectorAll(".tabs button").forEach((x,j)=>x.classList.toggle("on",j==i));D.forEach((_,j)=>document.getElementById("d"+j).style.display=j==i?"block":"none");scrollTo(0,0)}
+function show(id,b){document.querySelectorAll(".sec").forEach(x=>x.classList.remove("on"));document.getElementById(id).classList.add("on");document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("on"));b.classList.add("on");scrollTo(0,0)}
+function items(k){return JSON.parse(localStorage.getItem(k)||"[]")}
+function drawList(k,id){let a=items(k),e=document.getElementById(id);e.innerHTML=a.length?a.map((x,i)=>`<div class="list"><input type="checkbox" ${x.d?"checked":""} onchange="toggle('${k}',${i})"><span class="${x.d?"done":""}" style="flex:1">${x.t}</span><button class="btn secondary" onclick="del('${k}',${i})">刪除</button></div>`).join(""): '<p class="muted">目前沒有項目，旅途中再加入即可。</p>'}
+function add(k){let inp=document.getElementById(k=="b"?"bi":"ei"),v=inp.value.trim();if(!v)return;let a=items(k);a.push({t:v,d:false});localStorage.setItem(k,JSON.stringify(a));inp.value="";drawList("b","buy");drawList("e","eat")}
+function toggle(k,i){let a=items(k);a[i].d=!a[i].d;localStorage.setItem(k,JSON.stringify(a));drawList("b","buy");drawList("e","eat")}
+function del(k,i){let a=items(k);a.splice(i,1);localStorage.setItem(k,JSON.stringify(a));drawList("b","buy");drawList("e","eat")}
+const P=["護照／證件","機票／訂房／票券QR Code","手機＋充電器","行動電源","日本交通IC卡","折傘","薄外套","舒適好走的鞋","購物袋","常用藥品","盥洗／保養用品","行李秤"];
+function pack(){let s=JSON.parse(localStorage.getItem("pack")||"{}");document.getElementById("pack").innerHTML=P.map((x,i)=>'<label class="list"><input type="checkbox" '+(s[i]?"checked":"")+' onchange="ps('+i+',this.checked)"><span class="'+(s[i]?"done":"")+'">'+x+'</span></label>').join("")}
+function ps(i,v){let s=JSON.parse(localStorage.getItem("pack")||"{}");s[i]=v;localStorage.setItem("pack",JSON.stringify(s));pack()}
+function openMap(q){window.open("https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q+" Japan"),"_blank")}
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js"));}
+render();drawList("b","buy");drawList("e","eat");pack();
+</script></body></html>
